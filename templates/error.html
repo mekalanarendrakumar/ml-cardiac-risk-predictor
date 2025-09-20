@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - Cardiac Risk Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cardiac Risk Predictor</h1>
+            <p>Error Processing Request</p>
+        </header>
+
+        <nav>
+            <a href="/">Predict</a>
+            <a href="/about">About</a>
+        </nav>
+
+        <main>
+            <div class="error-container">
+                <div class="error-icon">⚠️</div>
+                <h2>Oops! Something went wrong</h2>
+                <p class="error-message">{{ error }}</p>
+                
+                <div class="error-suggestions">
+                    <h3>What you can do:</h3>
+                    <ul>
+                        <li>Check that all form fields are filled correctly</li>
+                        <li>Ensure numeric values are within reasonable ranges</li>
+                        <li>Try refreshing the page and submitting again</li>
+                        <li>If the problem persists, please contact support</li>
+                    </ul>
+                </div>
+
+                <div class="actions">
+                    <a href="/" class="btn-primary">Back to Predictor</a>
+                    <button onclick="history.back()" class="btn-secondary">Go Back</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Cardiac Risk Predictor. For educational purposes only.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

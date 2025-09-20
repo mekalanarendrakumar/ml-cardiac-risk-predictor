@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardiac Risk Assessment Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cardiac Risk Predictor</h1>
+            <p>Assessment Results</p>
+        </header>
+
+        <nav>
+            <a href="/">Predict</a>
+            <a href="/about">About</a>
+        </nav>
+
+        <main>
+            <div class="result-container">
+                <h2>Risk Assessment Results</h2>
+                
+                <div class="risk-summary">
+                    <div class="risk-score">
+                        <h3>Risk Probability</h3>
+                        <div class="probability-circle">
+                            <span class="probability-value">{{ (risk_probability * 100)|round(1) }}%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="risk-level">
+                        <h3>Risk Level</h3>
+                        <div class="risk-badge {{ risk_level.lower().replace(' ', '-') }}">
+                            {{ risk_level }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="risk-interpretation">
+                    <h3>Interpretation</h3>
+                    {% if risk_probability < 0.3 %}
+                        <p class="interpretation low-risk">
+                            Your cardiac risk assessment indicates a <strong>low probability</strong> of heart disease. 
+                            This is a positive result, but remember to maintain a healthy lifestyle with regular 
+                            exercise, balanced diet, and routine medical check-ups.
+                        </p>
+                    {% elif risk_probability < 0.6 %}
+                        <p class="interpretation moderate-risk">
+                            Your assessment shows a <strong>moderate risk</strong> for heart disease. 
+                            Consider discussing these results with your healthcare provider and 
+                            implementing lifestyle changes such as improved diet, regular exercise, 
+                            and stress management.
+                        </p>
+                    {% elif risk_probability < 0.8 %}
+                        <p class="interpretation high-risk">
+                            Your assessment indicates a <strong>high risk</strong> for heart disease. 
+                            It's important to consult with a cardiologist or your primary care physician 
+                            immediately. They may recommend further testing and preventive measures.
+                        </p>
+                    {% else %}
+                        <p class="interpretation very-high-risk">
+                            Your assessment shows a <strong>very high risk</strong> for heart disease. 
+                            Please seek immediate medical attention from a cardiac specialist. 
+                            Early intervention can significantly improve outcomes.
+                        </p>
+                    {% endif %}
+                </div>
+
+                <div class="patient-summary">
+                    <h3>Patient Information Summary</h3>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <span class="label">Age:</span>
+                            <span class="value">{{ patient_data.age }} years</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Sex:</span>
+                            <span class="value">{{ 'Male' if patient_data.sex == 1 else 'Female' }}</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Chest Pain Type:</span>
+                            <span class="value">
+                                {% if patient_data.chest_pain_type == 0 %}Typical Angina
+                                {% elif patient_data.chest_pain_type == 1 %}Atypical Angina
+                                {% elif patient_data.chest_pain_type == 2 %}Non-Anginal Pain
+                                {% else %}Asymptomatic{% endif %}
+                            </span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Resting BP:</span>
+                            <span class="value">{{ patient_data.resting_bp }} mmHg</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Cholesterol:</span>
+                            <span class="value">{{ patient_data.cholesterol }} mg/dl</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Max Heart Rate:</span>
+                            <span class="value">{{ patient_data.max_heart_rate }} bpm</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <a href="/" class="btn-primary">New Assessment</a>
+                    <button onclick="window.print()" class="btn-secondary">Print Results</button>
+                </div>
+
+                <div class="disclaimer">
+                    <h4>Important Disclaimer</h4>
+                    <p>
+                        This prediction tool is for educational and informational purposes only. 
+                        It is not a substitute for professional medical advice, diagnosis, or treatment. 
+                        Always seek the advice of your physician or other qualified health provider 
+                        with any questions you may have regarding a medical condition.
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Cardiac Risk Predictor. For educational purposes only.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
