@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Cardiac Risk Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cardiac Risk Predictor</h1>
+            <p>About Our Machine Learning Model</p>
+        </header>
+
+        <nav>
+            <a href="/">Predict</a>
+            <a href="/about" class="active">About</a>
+        </nav>
+
+        <main>
+            <div class="about-container">
+                <section class="about-section">
+                    <h2>About This Project</h2>
+                    <p>
+                        The Cardiac Risk Predictor is a machine learning-based web application designed to assess 
+                        the risk of heart disease based on various patient health indicators. This tool uses 
+                        advanced algorithms to analyze multiple clinical parameters and provide risk assessments 
+                        that can aid in early detection and prevention of cardiovascular diseases.
+                    </p>
+                </section>
+
+                <section class="about-section">
+                    <h2>How It Works</h2>
+                    <div class="process-steps">
+                        <div class="step">
+                            <h3>1. Data Input</h3>
+                            <p>Patients provide clinical information including age, sex, chest pain type, blood pressure, cholesterol levels, and other cardiac indicators.</p>
+                        </div>
+                        <div class="step">
+                            <h3>2. Machine Learning Analysis</h3>
+                            <p>Our Random Forest algorithm processes the input data using patterns learned from training on cardiac health datasets.</p>
+                        </div>
+                        <div class="step">
+                            <h3>3. Risk Assessment</h3>
+                            <p>The model outputs a probability score and risk level classification to help understand potential cardiac health concerns.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="about-section">
+                    <h2>Technology Stack</h2>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <h4>Backend</h4>
+                            <ul>
+                                <li>Python 3.x</li>
+                                <li>Flask Web Framework</li>
+                                <li>Scikit-learn</li>
+                                <li>Pandas & NumPy</li>
+                            </ul>
+                        </div>
+                        <div class="tech-item">
+                            <h4>Machine Learning</h4>
+                            <ul>
+                                <li>Random Forest Classifier</li>
+                                <li>Feature Scaling</li>
+                                <li>Cross-validation</li>
+                                <li>Model Persistence</li>
+                            </ul>
+                        </div>
+                        <div class="tech-item">
+                            <h4>Frontend</h4>
+                            <ul>
+                                <li>HTML5 & CSS3</li>
+                                <li>Responsive Design</li>
+                                <li>JavaScript</li>
+                                <li>Jinja2 Templates</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="about-section">
+                    <h2>Model Features</h2>
+                    <div class="features-grid">
+                        <div class="feature">
+                            <h4>Age</h4>
+                            <p>Patient's age in years</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Sex</h4>
+                            <p>Biological sex (Male/Female)</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Chest Pain Type</h4>
+                            <p>Classification of chest pain symptoms</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Blood Pressure</h4>
+                            <p>Resting blood pressure measurement</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Cholesterol</h4>
+                            <p>Serum cholesterol levels</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Heart Rate</h4>
+                            <p>Maximum heart rate achieved</p>
+                        </div>
+                        <div class="feature">
+                            <h4>ECG Results</h4>
+                            <p>Resting electrocardiographic results</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Exercise Angina</h4>
+                            <p>Exercise induced angina presence</p>
+                        </div>
+                        <div class="feature">
+                            <h4>ST Depression</h4>
+                            <p>ST depression induced by exercise</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="about-section">
+                    <h2>Accuracy & Performance</h2>
+                    <p>
+                        Our Random Forest model has been trained and validated using synthetic cardiac health data 
+                        that mimics real-world patterns. The model achieves good performance metrics and provides 
+                        reliable risk assessments. However, this is a demonstration project and should not be used 
+                        for actual medical diagnosis.
+                    </p>
+                </section>
+
+                <section class="about-section disclaimer-section">
+                    <h2>Important Medical Disclaimer</h2>
+                    <div class="disclaimer-box">
+                        <p>
+                            <strong>This tool is for educational and demonstration purposes only.</strong> 
+                            It is not intended to replace professional medical advice, diagnosis, or treatment. 
+                            The predictions made by this system should never be used as the sole basis for 
+                            medical decisions.
+                        </p>
+                        <p>
+                            Always consult with qualified healthcare professionals for proper medical evaluation 
+                            and treatment. If you have concerns about your heart health, please contact your 
+                            doctor or seek emergency medical attention if experiencing symptoms of a heart attack.
+                        </p>
+                    </div>
+                </section>
+
+                <div class="actions">
+                    <a href="/" class="btn-primary">Try the Predictor</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Cardiac Risk Predictor. For educational purposes only.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
